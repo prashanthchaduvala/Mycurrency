@@ -1,0 +1,61 @@
+{% extends 'admin/base_site.html' %}
+{% block title %}Currency Converter{% endblock %}
+ 
+{% block content %}
+<h2>Currency Converter</h2>
+ 
+<form method="POST" action=".">
+    {% csrf_token %}
+    <div>
+        <label for="source_currency">Source Currency:</label>
+        <select name="source_currency" id="source_currency">
+            <option value="USD">USD</option>
+            <option value="EUR">EUR</option>
+            <option value="GBP">GBP</option>
+            <option value="CHF">CHF</option>
+        </select>
+    </div>
+ 
+    <div>
+        <label for="target_currencies">Target Currencies:</label>
+        <select name="target_currencies" id="target_currencies" multiple>
+            <option value="USD">USD</option>
+            <option value="EUR">EUR</option>
+            <option value="GBP">GBP</option>
+            <option value="CHF">CHF</option>
+        </select>
+    </div>
+ 
+    <div>
+        <label for="amount">Amount:</label>
+        <input type="number" name="amount" id="amount" required />
+    </div>
+ 
+    <div>
+        <button type="submit">Convert</button>
+    </div>
+</form>
+ 
+{% if results %}
+    <h3>Conversion Results:</h3>
+    <table>
+        <thead>
+            <tr>
+                <th>Target Currency</th>
+                <th>Exchange Rate</th>
+                <th>Converted Amount</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for result in results %}
+            <tr>
+                <td>{{ result.currency }}</td>
+                <td>{{ result.rate }}</td>
+                <td>{{ result.converted_amount }}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endif %}
+{% endblock %}
+has context menu
