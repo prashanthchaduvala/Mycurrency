@@ -42,20 +42,20 @@ MyCurrency is a Django-based web platform that allows users to calculate currenc
     >> }
 - If you want change the databse use this code 
 
-    >> DATABASES = {
-    >>     'default': {
-    >>         'ENGINE': 'django.db.backends.mysql',
-    >>         'NAME': 'databse name',
-    >>         'USER': 'databse username',
-    >>         'PASSWORD': 'databse password',
-    >>         'HOST':'host number',
-    >>         'PORT':'port number',
-    >>         "OPTIONS": {
-    >>               'ssl_disabled':True,
-                
-    >>            }
-    >>     }
-    >> }
+        >> DATABASES = {
+        >>     'default': {
+        >>         'ENGINE': 'django.db.backends.mysql',
+        >>         'NAME': 'databse name',
+        >>         'USER': 'databse username',
+        >>         'PASSWORD': 'databse password',
+        >>         'HOST':'host number',
+        >>         'PORT':'port number',
+        >>         "OPTIONS": {
+        >>               'ssl_disabled':True,
+                    
+        >>            }
+        >>     }
+        >> }
     >> . Run the following commands to create migrations and migrate the database generating tables & columns:
     - python manage.py makemigrations
     - python manage.py migrate
@@ -68,9 +68,9 @@ MyCurrency is a Django-based web platform that allows users to calculate currenc
 - pip install django
 >  or
 - pip install celery django-celery
-1: Add celery and Django-celery-beat to the INSTALLED_APPS list in Django settings.
+  - Add celery and Django-celery-beat to the INSTALLED_APPS list in Django settings.
 - 'celery',
-2.: In the Django project’s settings.py file, add the following code:
+ - In the Django project’s settings.py file, add the following code:
 >> myproject/settings.py
 
     # set the celery broker url
@@ -88,7 +88,7 @@ MyCurrency is a Django-based web platform that allows users to calculate currenc
 
  - __all__ = ['celery_app']
 >> Create a Celery instance in the Django project. This is typically done in a file called celery.py in our Django project root:
-    # myproject/celery.py
+    # mycurrency/celery.py
 
     import os
     from celery import Celery
