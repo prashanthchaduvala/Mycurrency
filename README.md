@@ -2,6 +2,8 @@
  
 MyCurrency is a Django-based web platform that allows users to calculate currency exchange rates using data from multiple external providers, including CurrencyBeacon. This project implements a flexible architecture with the Adapter Design Pattern to manage currency exchange rates efficiently.
  
+## I am using Windows
+
 ## Table of Contents
 - [Project Setup](#project-setup)
 - [Configure Database](#configure-datebase)
@@ -18,8 +20,8 @@ MyCurrency is a Django-based web platform that allows users to calculate currenc
  
 ## Project Setup
 
-**I am using Windows**
- 
+
+
 1. **Clone the Repository:**
    ```bash
    git clone https://github.com/prashanthchaduvala/Mycurrency.git
