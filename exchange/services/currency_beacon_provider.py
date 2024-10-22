@@ -10,6 +10,8 @@ class CurrencyBeaconProvider(ExchangeRateProviderAdapter):
         endpoint = f"convert?from={source_currency}&to={exchanged_currency}&date={valuation_date}&api_key={self.api_key}"
         response = requests.get(f"{self.base_url}{endpoint}")
         data = response.json()
+        
+        print(data,'datatatat')
 
         if response.status_code == 200:
             return data['rate']

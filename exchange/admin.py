@@ -6,12 +6,23 @@ from .models import Provider
 from .services.exchange_service import ExchangeRateService
 from django.urls import path
 from django.shortcuts import render
-
+from .models import Currency, CurrencyExchangeRate
 
 @admin.register(Provider)
 class ProviderAdmin(admin.ModelAdmin):
     list_display = ('name', 'priority', 'active')
     list_editable = ('priority', 'active')
+
+@admin.register(Currency)
+class CurrencyAdmin(admin.ModelAdmin):
+    list_display = ('code', 'name', 'symbol')  # Columns to display in the list view
+    search_fields = ('code', 'name')  # Fields to search
+ 
+@admin.register(CurrencyExchangeRate)
+class CurrencyExchangeRateAdmin(admin.ModelAdmin):
+    list_display = ('source_currency', 'exchanged_currency', 'valuation_date', 'rate_value')  # Columns to display
+    list_filter = ('source_currency', 'exchanged_currency', 'valuation_date')  # Filters for the list view
+    search_fields = ('source_currency__code', 'exchanged_currency__code')  # Search fields
 
 class ConverterAdmin(admin.ModelAdmin):
     change_list_template = "admin/converter_view.html"

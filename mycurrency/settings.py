@@ -39,6 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'exchange',
     'rest_framework',
+    # 'celery',
+    'django_celery_beat',
 ]
 
 MIDDLEWARE = [
@@ -92,8 +94,8 @@ DATABASES = {
 #         'HOST':'192.168.1.206',
 #         'PORT':'3306',
 #         "OPTIONS": {
-#              "sql_mode":"traditional",
-#               'ssl': False,
+#               'ssl_disabled':True,
+              
 #            }
 #     }
 # }
@@ -139,3 +141,27 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+
+# set the celery broker url
+CELERY_BROKER_URL = 'redis://localhost:6379/0'
+
+# set the celery result backend
+CELERY_RESULT_BACKEND = 'redis://localhost:6379/0'
+
+# set the celery timezone
+CELERY_TIMEZONE = 'UTC'
+
+from datetime import timedelta
+ 
+CELERY_BEAT_SCHEDULE = {
+    'load-historical-data-every-minute': {
+        'task': 'exchange.tasks.load_historical_data',
+        'schedule': timedelta(minutes=1),  # Runs every 1 minute
+        'args': ('2020-01-01', '2024-01-31')  # Add the args for the task if needed
+    },
+}
+ 
+# Also make sure these are added for using Celery beat
+CELERY_BEAT_SCHEDULER = 'django_celery_beat.schedulers.DatabaseScheduler'

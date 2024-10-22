@@ -16,14 +16,16 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from exchange.views import CurrencyExchangeRateListView,convert_currency,CurrencyListCreateView,CurrencyDetailView
+from exchange.views import CurrencyExchangeRateListView,CurrencyListCreateView,CurrencyDetailView,convert_currency_view,CurrencyRatesListView,UpdateExchangeRateView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('currency-rates/', CurrencyExchangeRateListView.as_view(), name='currency-rates'),
-    path('convert/', convert_currency, name='convert-currency'),
+    path('currency-rates/', CurrencyRatesListView.as_view(), name='currency-rates'),
+    path('convert/', convert_currency_view, name='convert-currency'),
     path('currencies/', CurrencyListCreateView.as_view(), name='currency-list'),
     path('currencies/<int:pk>/', CurrencyDetailView.as_view(), name='currency-detail'),
-    path('v1/currency-rates/', CurrencyExchangeRateListView.as_view(), name='currency-rates-v1')
+    path('v1/currency-rates/', CurrencyExchangeRateListView.as_view(), name='currency-rates-v1'),
+
+    path('update-exchange-rates/', UpdateExchangeRateView.as_view(), name='update-exchange-rates'), # update exchange rates
  
 ]
