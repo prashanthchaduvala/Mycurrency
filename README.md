@@ -11,7 +11,8 @@ MyCurrency is a Django-based web platform that allows users to calculate currenc
 - [Services](#services)
 - [Contributing](#contributing)
 - [APIs Collection](#apis-collection)
-- [Summary of APIS](#apis-summary)
+- [Summary Of APIS](#apis-summary)
+
 
 
  
@@ -30,16 +31,17 @@ MyCurrency is a Django-based web platform that allows users to calculate currenc
     - pip install -r requirements.txt
 
 ## Configure Database
+
     . Update your settings.py with your database configuration.
     
-    - I am using default django provided database
-    >> SQLITE3
-    >> DATABASES = {
-    >> 'default': {
-    >>    'ENGINE': 'django.db.backends.sqlite3',
-    >>    'NAME': BASE_DIR / 'db.sqlite3',
-    >>    }
-    >> }
+- I am using default django provided database
+        >> SQLITE3
+        >> DATABASES = {
+        >> 'default': {
+        >>    'ENGINE': 'django.db.backends.sqlite3',
+        >>    'NAME': BASE_DIR / 'db.sqlite3',
+        >>    }
+        >> }
 - If you want change the databse use this code 
 
         >> DATABASES = {
@@ -59,6 +61,8 @@ MyCurrency is a Django-based web platform that allows users to calculate currenc
     >> . Run the following commands to create migrations and migrate the database generating tables & columns:
     - python manage.py makemigrations
     - python manage.py migrate
+
+
 
 
 ## Celery Setup
@@ -259,8 +263,7 @@ The MyCurrency platform interacts with external APIs and implements several key 
 **Example Usage**:
 
 
-## Summary of APIS
-
+## Summary Of APIS
 
 - `/currency-rates/`: Retrieve exchange rates for a specific currency and time range.
 - `/convert/`: Convert a specified amount between two currencies.
