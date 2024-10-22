@@ -21,6 +21,7 @@ MyCurrency is a Django-based web platform that allows users to calculate currenc
 1. **Clone the Repository:**
    ```bash
    git clone https://github.com/prashanthchaduvala/Mycurrency.git
+   git checkout master
    cd MyCurrency
 
 2. **Create a Virtual Environment**
