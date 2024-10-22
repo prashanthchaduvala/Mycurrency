@@ -17,22 +17,30 @@ MyCurrency is a Django-based web platform that allows users to calculate currenc
 
  
 ## Project Setup
+
+* I am using Windows
  
 1. **Clone the Repository:**
    ```bash
    git clone https://github.com/prashanthchaduvala/Mycurrency.git
    
-   
-2. **Create a Virtual Environment**
+2. **Navigate to the Project Directory**
+    - cd MyCurrency
+  
+3. **Create a Virtual Environment**
     - python -m venv currency-venv
-3. **Activate a Virtual Environment**
+
+4. **Activate a Virtual Environment**
+ . On Windows:
     - currency-venv\Scripts\activate.bat
+ . On macOS/Linux:
+    - source currency-venv/bin/activate
 
-4. **Goto directory :**
- - cd MyCurrency (project)
- - checkout master
+5. **Checkout the Master Branch:**
+ - git checkout master
 
-5. **Install Dependencies :**
+
+6. **Install Dependencies :**
     - pip install -r requirements.txt
 
 ## Configure Database
